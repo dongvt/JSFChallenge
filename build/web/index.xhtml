@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Chairs</title>
+        <h:outputStylesheet name="css/css.css" />
+    </h:head>
+    <h:body>
+        <h:form id="inputForm">
+            <p:outputLabel value="Usuario" />
+            <p:selectOneMenu value="#{userNumber}">
+                <!--<p:ajax event="valueChange" update="chairs" process="@form"/>//-->
+                <f:selectItem itemLabel="Juan P" itemValue="1"/>
+                <f:selectItem itemLabel="Alex Swa" itemValue="2"/>
+                <f:selectItem itemLabel="Cody Jam" itemValue="3"/>
+                <f:selectItem itemLabel="Isabel Cris" itemValue="4"/>
+                <f:selectItem itemLabel="Jenny Cam" itemValue="5"/>
+                <f:selectItem itemLabel="Richard Hei" itemValue="6"/>
+                <f:selectItem itemLabel="Aaron Jac" itemValue="7"/>
+                <f:selectItem itemLabel="Lee Arms" itemValue="8"/>
+                <f:selectItem itemLabel="Zach Hunt" itemValue="9"/>
+                <f:selectItem itemLabel="Usu Fin" itemValue="10"/>
+            </p:selectOneMenu>
+            <p:commandButton value="Actualizar" actionListener="#{tableBean.updateOnChanged(userNumber)}" update="chairs"/>
+            
+            <p:dataTable id="chairs" value="#{tableBean.data}" var="chairTable" rowIndexVar="index">
+                <p:column headerText="Indices">
+                    <p:outputLabel value="#{index + 1}"  />
+                </p:column>
+                <p:column headerText="1" styleClass="#{tableBean.label(chairTable.column1)}">
+                    <p:commandLink value="#{chairTable.column1}" actionListener="#{tableBean.changeChairState(index,1,userNumber)}" update="chairs"/>
+                </p:column>
+                <p:column headerText="2" styleClass="#{tableBean.label(chairTable.column2)}">
+                    <p:commandLink value="#{chairTable.column2}" actionListener="#{tableBean.changeChairState(index,2,userNumber)}" update="chairs"/>
+                </p:column>
+                <p:column headerText="3" styleClass="#{tableBean.label(chairTable.column3)}">
+                    <p:commandLink value="#{chairTable.column3}" actionListener="#{tableBean.changeChairState(index,3,userNumber)}" update="chairs"/>
+                </p:column>
+                <p:column headerText="4" styleClass="#{tableBean.label(chairTable.column4)}">
+                    <p:commandLink value="#{chairTable.column4}" actionListener="#{tableBean.changeChairState(index,4,userNumber)}" update="chairs"/>
+                </p:column>
+                <p:column headerText="5" styleClass="#{tableBean.label(chairTable.column5)}">
+                    <p:commandLink value="#{chairTable.column5}" actionListener="#{tableBean.changeChairState(index,5,userNumber)}" update="chairs" />
+                </p:column>
+                <p:column headerText="6" styleClass="#{tableBean.label(chairTable.column6)}">
+                    <p:commandLink value="#{chairTable.column6}" actionListener="#{tableBean.changeChairState(index,6,userNumber)}" update="chairs"/>
+                </p:column>
+                <p:column headerText="7" styleClass="#{tableBean.label(chairTable.column7)}">
+                    <p:commandLink value="#{chairTable.column7}" actionListener="#{tableBean.changeChairState(index,7,userNumber)}" update="chairs"/>
+                </p:column>
+                <p:column headerText="8" styleClass="#{tableBean.label(chairTable.column8)}">
+                    <p:commandLink value="#{chairTable.column8}" actionListener="#{tableBean.changeChairState(index,8,userNumber)}" update="chairs"/>
+                </p:column>
+                <p:column headerText="9" styleClass="#{tableBean.label(chairTable.column9)}">
+                    <p:commandLink value="#{chairTable.column9}" actionListener="#{tableBean.changeChairState(index,9,userNumber)}" update="chairs"/>
+                </p:column>
+                <p:column headerText="10" styleClass="#{tableBean.label(chairTable.column10)}">
+                    <p:commandLink value="#{chairTable.column10}" actionListener="#{tableBean.changeChairState(index,10,userNumber)}" update="chairs"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

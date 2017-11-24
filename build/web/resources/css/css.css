@@ -1,0 +1,20 @@
+
+/* 
+    Created on : 23-nov-2017, 9:58:22
+    Author     : Govert Carreño
+*/
+
+.EU{
+    background : green;
+    color: white;
+}
+
+.V{
+    background: lightgrey; 
+    color: black;
+}
+
+.O{
+    background: red; 
+    color: white;
+}
